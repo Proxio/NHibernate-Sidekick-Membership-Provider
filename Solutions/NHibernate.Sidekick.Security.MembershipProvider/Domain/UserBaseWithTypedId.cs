@@ -1,10 +1,12 @@
 using System;
+using System.Diagnostics;
 using NHibernate.Sidekick.Security.MembershipProvider.Contracts.Domain;
 using SharpArch.Domain.DomainModel;
 
 namespace NHibernate.Sidekick.Security.MembershipProvider.Domain
 {
     [Serializable]
+    [DebuggerDisplay("{Username}")]
     public abstract class UserBaseWithTypedId<TId> : EntityWithTypedId<TId>, IUserBaseWithTypedId<TId>
     {
         protected UserBaseWithTypedId()
@@ -33,7 +35,7 @@ namespace NHibernate.Sidekick.Security.MembershipProvider.Domain
         public virtual DateTime? LastLoginDate { get; set; }
         public virtual DateTime LastPasswordChangedDate { get; set; }
         public virtual DateTime CreationDate { get; protected set; }
-        public virtual bool IsOnLine { get; set; }
+        public virtual bool IsOnline { get; set; }
         public virtual bool IsLockedOut { get; set; }
         public virtual DateTime LastLockedOutDate { get; set; }
         public virtual int FailedPasswordAttemptCount { get; set; }

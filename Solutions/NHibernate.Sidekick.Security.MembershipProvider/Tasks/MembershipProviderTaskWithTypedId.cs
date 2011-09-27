@@ -77,7 +77,7 @@ namespace NHibernate.Sidekick.Security.MembershipProvider.Tasks
 
         public void SaveOrUpdate(T user)
         {
-            membershipProviderRepository.Save(user);
+            membershipProviderRepository.SaveOrUpdate(user);
         }
 
         public MembershipUserCollection FindUsersByEmail(string emailToMatch, int pageIndex, int pageSize, out int totalRecords, string name, string applicationName)

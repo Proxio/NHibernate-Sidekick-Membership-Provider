@@ -24,6 +24,11 @@ namespace NHibernate.Sidekick.Security.MembershipProvider.Repositories
                 .SingleOrDefault<string>();
         }
 
+        public override T SaveOrUpdate(T user)
+        {
+            return base.SaveOrUpdate(user);
+        }
+
         public MembershipUserCollection FindUsersByEmail(string emailToMatch, int pageIndex, int pageSize, out int totalRecords, string name, string applicationName)
         {
             emailToMatch = emailToMatch.ToLowerAndTrim();
