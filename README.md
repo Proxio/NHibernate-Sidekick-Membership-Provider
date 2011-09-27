@@ -33,11 +33,11 @@ This step is only relevant if you're using Fluent NHibernate's [Automapping mech
 
 ### 4. Set your application's authentication mode to `Forms` 
 Set this within your application's `web.config`:
-<pre><code><configuration>
-	<system.web>
-		<authentication mode="Forms" />
-	</system.web>
-</configuration>
+<pre><code>&lt;configuration>
+	&lt;system.web>
+		&lt;authentication mode="Forms" />
+	&lt;/system.web>
+&lt;/configuration>
 </code></pre>
 
 ### 5. Set your provider's configuration options
