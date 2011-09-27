@@ -42,22 +42,22 @@ Set this within your application's `web.config`:
 
 ### 5. Set your provider's configuration options
 Set this within your application's `web.config`:
-<pre><configuration>
-	<system.web>
-		<membership defaultProvider="SidekickMembershipProvider" userIsOnlineTimeWindow="15">
-			<providers>
-				<add    name="SidekickMembershipProvider"
+<pre><code>&lt;configuration>
+	&lt;system.web>
+		&lt;membership defaultProvider="SidekickMembershipProvider" userIsOnlineTimeWindow="15">
+			&lt;providers>
+				&lt;add    name="SidekickMembershipProvider"
 						applicationName ="Sidekick_Security_SampleApp"
 						type="NHibernate.Sidekick.Security.Sampler.Domain.MembershipProvider"
 						enablePasswordRetrieval="true"
 						enablePasswordReset="true"
 						requiresQuestionAndAnswer="true"
 						passwordFormat="Clear"/>
-			</providers>
-		</membership>
-	</system.web>
-</configuration>
-</pre>
+			&lt;/providers>
+		&lt;/membership>
+	&lt;/system.web>
+&lt;/configuration>
+</code></pre>
 
 Simple usage
 -------------
