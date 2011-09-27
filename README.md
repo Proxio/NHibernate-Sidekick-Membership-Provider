@@ -6,20 +6,16 @@ Implementation
 ---------------------
 ### 1. Create your `User` entity
 Create the entity responsible for persisting data between the Membership Provider and your database.
-<pre><code>public class User : NHibernate.Sidekick.Security.MembershipProvider.Domain.UserBase 
-    {
-    }
+<pre><code>public class User : NHibernate.Sidekick.Security.MembershipProvider.Domain.UserBase  { }
 </code></pre>
 
-`UserBase` assumes your class' Identifier is an integer. If this is not the case, inherit from `UserBaseWithTypedId<TId>` instead.
+This model assumes your class' Identifier is an integer. If this is not the case, inherit from `UserBaseWithTypedId<TId>` instead.
 
 ### 2. Create your provider
-This is who unobtrusively does all the work for you. [Set it and forget it](http://goo.gl/hSMvl).
-<pre><code>public class MembershipProvider : NHibernate.Sidekick.Security.MembershipProvider.Providers.MembershipProvider<User>
-    {
-    }
+This is who unobtrusively does all the work for you.
+<pre><code>public class MembershipProvider : NHibernate.Sidekick.Security.MembershipProvider.Providers.MembershipProvider<User> { }
 </code></pre>
-`NHibernate.Sidekick.Security.MembershipProvider.Providers<T>` assumes your `User`'s Identifier is an integer. If this is not the case, inherit from `MembershipProviderWithTypedId<T, TId>` instead.
+This model assumes your `User`'s Identifier is an integer. If this is not the case, inherit from `MembershipProviderWithTypedId<T, TId>` instead.
 
 ### 3. Ignore `UserBase` from Fluent NHibernate's Automap generator
 <pre><code>public class AutoPersistenceModelGenerator : SharpArch.NHibernate.FluentNHibernate.IAutoPersistenceModelGenerator
@@ -32,7 +28,7 @@ This is who unobtrusively does all the work for you. [Set it and forget it](http
 		mappings.IgnoreBase(typeof(UserBaseWithTypedId<>));
 	}
 }
-
+</code></pre>
 This step is only relevant if you're using Fluent NHibernate's [Automapping mechanism](http://wiki.fluentnhibernate.org/Auto_mapping).
 
 ### 4. Set your application's authentication mode to `Forms` 
