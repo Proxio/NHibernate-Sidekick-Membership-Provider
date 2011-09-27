@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Membership", "Membership", "{75AB8EB9-296F-4410-AC42-2955A0404090}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernate.Sidekick.Security.MembershipProvider", "NHibernate.Sidekick.Security.MembershipProvider\NHibernate.Sidekick.Security.MembershipProvider.csproj", "{598F8AC1-2373-4CE9-8771-EAFE820D258A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{598F8AC1-2373-4CE9-8771-EAFE820D258A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{598F8AC1-2373-4CE9-8771-EAFE820D258A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{598F8AC1-2373-4CE9-8771-EAFE820D258A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{598F8AC1-2373-4CE9-8771-EAFE820D258A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{598F8AC1-2373-4CE9-8771-EAFE820D258A} = {75AB8EB9-296F-4410-AC42-2955A0404090}
+	EndGlobalSection
+EndGlobal
