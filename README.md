@@ -67,6 +67,16 @@ Simple usage
 </pre></code>
 If you're unfamiliar with ASP.NET's Membership Provider, you can find more information on Microsoft's [MSDN](http://msdn.microsoft.com/en-us/library/system.web.security.membership.aspx) and [Patterns and Practices](http://msdn.microsoft.com/en-us/library/ff648345.aspx).
 
+.NET Dependencies
+------------------
+* .NET Framework 4.0
+* System
+* System.Core
+* System.Data
+* System.Configuration
+* System.Web
+* System.Web.ApplicationServices
+
 Third-Party Dependencies
 -------------------------
 * [NHibernate 3.1.0.4000](http://sourceforge.net/projects/nhibernate/files/NHibernate/)
