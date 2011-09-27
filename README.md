@@ -42,7 +42,7 @@ Set this within your application's `web.config`:
 
 ### 5. Set your provider's configuration options
 Set this within your application's `web.config`:
-<pre><code><configuration>
+<pre><configuration>
 	<system.web>
 		<membership defaultProvider="SidekickMembershipProvider" userIsOnlineTimeWindow="15">
 			<providers>
@@ -57,7 +57,7 @@ Set this within your application's `web.config`:
 		</membership>
 	</system.web>
 </configuration>
-</code></pre>
+</pre>
 
 Simple usage
 -------------
@@ -65,7 +65,7 @@ Simple usage
     <text>Welcome <strong>@User.Identity.Name</strong>!</text>
 }
 </pre></code>
-If you're unfamiliar with ASP.NET's Membership Provider, you can find more information on [Microsoft's MSDN](http://msdn.microsoft.com/en-us/library/system.web.security.membership.aspx) and [here](http://msdn.microsoft.com/en-us/library/ff648345.aspx).
+If you're unfamiliar with ASP.NET's Membership Provider, you can find more information on Microsoft's [MSDN](http://msdn.microsoft.com/en-us/library/system.web.security.membership.aspx) and [Patterns and Practices](http://msdn.microsoft.com/en-us/library/ff648345.aspx).
 
 Third-Party Dependencies
 -------------------------
