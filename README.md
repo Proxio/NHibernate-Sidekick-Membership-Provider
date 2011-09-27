@@ -9,7 +9,7 @@ Create the entity responsible for persisting data between the Membership Provide
 <pre><code>public class User : NHibernate.Sidekick.Security.MembershipProvider.Domain.UserBase  { }
 </code></pre>
 
-This model assumes your class' Identifier is an integer. If this is not the case, inherit from `UserBaseWithTypedId<TId>` instead.
+This model assumes your `User`'s Identifier is an integer. If this is not the case, inherit from `UserBaseWithTypedId<TId>` instead.
 
 ### 2. Create your provider
 This is who unobtrusively does all the work for you.
