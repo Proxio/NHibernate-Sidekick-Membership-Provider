@@ -13,7 +13,7 @@ This model assumes your `User`'s Identifier is an integer. If this is not the ca
 
 ### 2. Create your provider
 This is who unobtrusively does all the work for you.
-<pre><code>public class MembershipProvider : NHibernate.Sidekick.Security.MembershipProvider.Providers.MembershipProvider<User> { }
+<pre><code>public class MembershipProvider : NHibernate.Sidekick.Security.MembershipProvider.Providers.MembershipProvider&lt;User> { }
 </code></pre>
 This model assumes your `User`'s Identifier is an integer. If this is not the case, inherit from `MembershipProviderWithTypedId<T, TId>` instead.
 
@@ -24,8 +24,8 @@ This model assumes your `User`'s Identifier is an integer. If this is not the ca
     {
 		AutoPersistenceModel mappings = AutoMap.AssemblyOf<User>(new AutomappingConfiguration());
 		// Default Sharp Architecture options go here.		
-		mappings.IgnoreBase<UserBase>();
-		mappings.IgnoreBase(typeof(UserBaseWithTypedId<>));
+		mappings.IgnoreBase&lt;UserBase>();
+		mappings.IgnoreBase(typeof(UserBaseWithTypedId&lt;>));
 	}
 }
 </code></pre>
