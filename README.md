@@ -22,7 +22,7 @@ This model assumes your `User`'s Identifier is an integer. If this is not the ca
 {
 	public AutoPersistenceModel Generate()
     {
-		AutoPersistenceModel mappings = AutoMap.AssemblyOf<User>(new AutomappingConfiguration());
+		AutoPersistenceModel mappings = AutoMap.AssemblyOf&lt;User>(new AutomappingConfiguration());
 		// Default Sharp Architecture options go here.		
 		mappings.IgnoreBase&lt;UserBase>();
 		mappings.IgnoreBase(typeof(UserBaseWithTypedId&lt;>));
