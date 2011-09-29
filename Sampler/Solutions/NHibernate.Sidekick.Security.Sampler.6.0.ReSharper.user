@@ -21,18 +21,15 @@
       <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Shared/f:_LogOnPartial.cshtml" caret="0" fromTop="0" />
       <File id="8DEF56CD-601E-443C-9DCE-C4EC54C0B6A6/f:User.cs" caret="156" fromTop="4" />
       <File id="8DEF56CD-601E-443C-9DCE-C4EC54C0B6A6/f:MembershipProvider.cs" caret="187" fromTop="4" />
-      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/f:AccountController.cs" caret="0" fromTop="0" />
-      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/f:HomeController.cs" caret="0" fromTop="0" />
       <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/f:RouteRegistrar.cs" caret="0" fromTop="0" />
-      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/f:Web.config" caret="2967" fromTop="0" />
       <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/f:Global.asax.cs" caret="3899" fromTop="22" />
       <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Shared/f:_Layout.cshtml" caret="0" fromTop="0" />
       <File id="9544D94B-9B6E-4B61-8A09-88382205BF86/d:NHibernateMaps/f:FluentConfigurer.cs" caret="676" fromTop="17" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/f:HomeController.cs" caret="267" fromTop="9" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/f:AccountController.cs" caret="517" fromTop="17" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/f:Web.config" caret="2497" fromTop="7" />
     </RecentFiles>
     <RecentEdits>
-      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/f:Web.config" caret="1544" fromTop="24" />
-      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/f:Global.asax.cs" caret="3780" fromTop="23" />
-      <File id="9544D94B-9B6E-4B61-8A09-88382205BF86/d:NHibernateMaps/f:AutoPersistenceModelGenerator.cs" caret="1192" fromTop="21" />
       <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Shared/f:_Layout.cshtml" caret="453" fromTop="13" />
       <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/f:Global.asax.cs" caret="3515" fromTop="13" />
       <File id="9544D94B-9B6E-4B61-8A09-88382205BF86/d:NHibernateMaps/f:FluentConfigurer.cs" caret="2417" fromTop="29" />
@@ -51,7 +48,7 @@
       <File id="9544D94B-9B6E-4B61-8A09-88382205BF86/d:NHibernateMaps/f:AutoPersistenceModelGenerator.cs" caret="398" fromTop="16" />
       <File id="9544D94B-9B6E-4B61-8A09-88382205BF86/d:NHibernateMaps/f:AutoPersistenceModelGenerator.cs" caret="150" fromTop="4" />
       <File id="8DEF56CD-601E-443C-9DCE-C4EC54C0B6A6/f:User.cs" caret="156" fromTop="4" />
-      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/f:Web.config" caret="2967" fromTop="29" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/f:Web.config" caret="3053" fromTop="29" />
       <File id="8DEF56CD-601E-443C-9DCE-C4EC54C0B6A6/f:MembershipProvider.cs" caret="187" fromTop="4" />
       <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/f:Global.asax.cs" caret="3347" fromTop="17" />
       <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/f:Global.asax.cs" caret="0" fromTop="0" />
@@ -60,6 +57,9 @@
       <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/f:Global.asax.cs" caret="630" fromTop="18" />
       <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/f:Global.asax.cs" caret="3347" fromTop="25" />
       <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/f:Global.asax.cs" caret="975" fromTop="17" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/f:HomeController.cs" caret="110" fromTop="4" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/f:AccountController.cs" caret="517" fromTop="17" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/f:Web.config" caret="2497" fromTop="7" />
     </RecentEdits>
   </RecentFiles>
   <CompletionStatisticsManager>
@@ -99,6 +99,9 @@
       <Item value="DatabaseName" priority="31" />
       <Item value="databaseName" priority="31" />
       <Item value="Domain" priority="22" />
+      <Item value="return" priority="31" />
+      <Item value="Redirect`0" priority="31" />
+      <Item value="FormsAuthentication`0" priority="31" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:NHibernate.Sidekick.Security.Sampler.Infrastructure.NHibernateMaps.FluentConfigurer">
       <Item value="GenerateDatabaseSchema`0" priority="26" />
@@ -132,6 +135,9 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:FluentNHibernate.Cfg.Db.SQLiteConfiguration">
       <Item value="Raw`0" priority="22" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Web.Security.FormsAuthentication">
+      <Item value="DefaultUrl" priority="26" />
     </ItemStatistics>
   </CompletionStatisticsManager>
   <NAntValidationSettings>
