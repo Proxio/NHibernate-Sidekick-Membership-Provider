@@ -17,7 +17,7 @@ namespace NHibernate.Sidekick.Security.MembershipProvider.Contracts.Domain
         DateTime? LastLoginDate { get; set; }
         DateTime LastPasswordChangedDate { get; set; }
         DateTime CreationDate { get; }
-        bool IsOnLine { get; set; }
+        bool IsOnline { get; set; }
         bool IsLockedOut { get; set; }
         DateTime LastLockedOutDate { get; set; }
         int FailedPasswordAttemptCount { get; set; }

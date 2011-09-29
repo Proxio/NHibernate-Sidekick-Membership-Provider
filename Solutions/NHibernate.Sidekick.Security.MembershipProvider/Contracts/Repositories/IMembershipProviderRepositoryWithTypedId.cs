@@ -13,5 +13,6 @@ namespace NHibernate.Sidekick.Security.MembershipProvider.Contracts.Repositories
         MembershipUserCollection GetAllUsers(int pageIndex, int pageSize, out int totalRecords, string providerName, string applicationName); 
         int GetNumberOfUsers(string applicationName, DateTime? onlineCompareTime = null);
         string GetUsernameByEmail(string email, string applicationName);
+        T SaveOrUpdate(T user);
     }
 }
