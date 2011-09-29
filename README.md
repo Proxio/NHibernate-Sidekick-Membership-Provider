@@ -61,12 +61,12 @@ Set this within your application's `web.config`:
 
 Simple usage
 -------------
-<pre><code>@if(Request.IsAuthenticated) {
+<pre><code>@if (Request.IsAuthenticated) {
     &lt;text>Welcome &lt;strong>@User.Identity.Name&lt;/strong>!&lt;/text>
 }
 </pre></code>
 <pre><code>[Authorize]
-    public class HomeController : Controller { }
+public class HomeController : Controller { }
 </pre></code>
 If you're unfamiliar with ASP.NET's Membership Provider, you can find more information on Microsoft's [MSDN](http://msdn.microsoft.com/en-us/library/system.web.security.membership.aspx) and [Patterns and Practices](http://msdn.microsoft.com/en-us/library/ff648345.aspx).
 
