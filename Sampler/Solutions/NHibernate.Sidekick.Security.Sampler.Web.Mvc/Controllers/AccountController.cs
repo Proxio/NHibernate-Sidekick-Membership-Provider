@@ -11,6 +11,11 @@ namespace NHibernate.Sidekick.Security.Sampler.Web.Mvc.Controllers
         [Transaction]
         public ActionResult LogOn()
         {
+            if (Request.IsAuthenticated)
+            {
+                return Redirect(FormsAuthentication.DefaultUrl);
+            }
+
             return View();
         }
 
