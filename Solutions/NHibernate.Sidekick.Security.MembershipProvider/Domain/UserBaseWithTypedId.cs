@@ -21,6 +21,7 @@ namespace NHibernate.Sidekick.Security.MembershipProvider.Domain
             LastActivityDate = CreationDate;
             LastPasswordChangedDate = CreationDate;
             LastLockedOutDate = CreationDate;
+            LastLoginDate = null;
         }
 
         public virtual string Username { get; set; }

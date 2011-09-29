@@ -115,6 +115,7 @@ namespace NHibernate.Sidekick.Security.MembershipProvider.Providers
 
             username = username.ToLowerAndTrim();
             MembershipUser muser = GetUser(username, false);
+
             if (muser == null)
             {
                 T user = new T
