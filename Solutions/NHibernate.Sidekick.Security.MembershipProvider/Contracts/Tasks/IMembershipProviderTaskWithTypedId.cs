@@ -16,5 +16,6 @@ namespace NHibernate.Sidekick.Security.MembershipProvider.Contracts.Tasks
         string GetUserNameByEmail(string email, string applicationName);
         void SaveOrUpdate(T user);
         bool ValidateUser(string username, string password, string applicationName);
+        string GetPassword(string username, string applicationName);
     }
 }

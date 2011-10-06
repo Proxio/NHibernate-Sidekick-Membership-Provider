@@ -75,6 +75,11 @@ namespace NHibernate.Sidekick.Security.MembershipProvider.Tasks
             return true;
         }
 
+        public string GetPassword(string username, string applicationName)
+        {
+            return membershipProviderRepository.GetPassword(username, applicationName);
+        }
+
         public void SaveOrUpdate(T user)
         {
             membershipProviderRepository.SaveOrUpdate(user);
