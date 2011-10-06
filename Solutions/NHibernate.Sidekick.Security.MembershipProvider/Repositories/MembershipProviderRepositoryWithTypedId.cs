@@ -24,6 +24,15 @@ namespace NHibernate.Sidekick.Security.MembershipProvider.Repositories
                 .SingleOrDefault<string>();
         }
 
+        public string GetPassword(string username, string applicationName)
+        {
+            return Session.QueryOver<T>()
+                .WhereRestrictionOn(x => x.Username).IsInsensitiveLike(username, MatchMode.Exact)
+                .AndRestrictionOn(x => x.ApplicationName).IsInsensitiveLike(applicationName, MatchMode.Exact)
+                .Select(x => x.Password)
+                .SingleOrDefault<string>();
+        }
+
         public override T SaveOrUpdate(T user)
         {
             return base.SaveOrUpdate(user);

@@ -2,6 +2,11 @@
 =================================================
 This project is an implementation of the [ASP.NET Membership Provider](http://msdn.microsoft.com/en-us/library/yh26yfzy.aspx) using [NHibernate](http://nhforge.org) and [Sharp Architecture](http://www.sharparchitecture.net/).
 
+Changelog
+---------------------
+ * 0.9.2
+  - Passwords are encrypted by default using a salt.
+   
 Implementation
 ---------------------
 ### 1. Create your `User` entity
@@ -47,7 +52,8 @@ Set this within your application's `web.config`:
 		&lt;membership defaultProvider="SidekickMembershipProvider" userIsOnlineTimeWindow="15">
 			&lt;providers>
 				&lt;add    name="SidekickMembershipProvider"
-						applicationName ="Sidekick_Security_SampleApp"
+						applicationName="Sidekick_Security_SampleApp"
+						salt="SidekickSalt"
 						type="NHibernate.Sidekick.Security.Sampler.Domain.MembershipProvider"
 						enablePasswordRetrieval="true"
 						enablePasswordReset="true"

@@ -24,7 +24,7 @@ namespace NHibernate.Sidekick.Security.MembershipProvider.Providers
         private string eventLog = "Application";
         private string exceptionMessage = "An exception occurred. Please check the Event Log.";
         private string connectionString;
-
+        private string salt;
         private string _applicationName;
         private bool _enablePasswordReset;
         private bool _enablePasswordRetrieval;
@@ -79,6 +79,7 @@ namespace NHibernate.Sidekick.Security.MembershipProvider.Providers
             _enablePasswordRetrieval = Convert.ToBoolean(GetConfigValue(config["enablePasswordRetrieval"], "true"));
             _requiresQuestionAndAnswer = Convert.ToBoolean(GetConfigValue(config["requiresQuestionAndAnswer"], "false"));
             _requiresUniqueEmail = Convert.ToBoolean(GetConfigValue(config["requiresUniqueEmail"], "true"));
+            salt = GetConfigValue(config["salt"], _applicationName);
             WriteExceptionsToEventLog = Convert.ToBoolean(GetConfigValue(config["writeExceptionsToEventLog"], "true"));
 
             string passwordFormat = config["passwordFormat"];
@@ -153,19 +154,19 @@ namespace NHibernate.Sidekick.Security.MembershipProvider.Providers
 
         private string EncodePassword(string password)
         {
-            string encodedPassword = password;
+            string encodedPassword;
 
             switch (PasswordFormat)
             {
                 case MembershipPasswordFormat.Clear:
+                    encodedPassword = new PasswordManager(salt).CreateHash(password);
                     break;
                 case MembershipPasswordFormat.Encrypted:
-                    encodedPassword = 
-                        Convert.ToBase64String(EncryptPassword(Encoding.Unicode.GetBytes(password)));
+                    encodedPassword = Convert.ToBase64String(EncryptPassword(Encoding.Unicode.GetBytes(password)));
                     break;
                 case MembershipPasswordFormat.Hashed:
                     // TODO Password encryption (hashed);
-                    break;
+                    throw new NotImplementedException("Hashed password");
                 default:
                     throw new ProviderException("Unsupported password format.");
             }
@@ -179,10 +180,10 @@ namespace NHibernate.Sidekick.Security.MembershipProvider.Providers
             switch (PasswordFormat)
             {
                 case MembershipPasswordFormat.Clear:
+                    password = new PasswordManager(salt).CreateHash(encodedPassword);
                     break;
                 case MembershipPasswordFormat.Encrypted:
-                    password = 
-                        Encoding.Unicode.GetString(DecryptPassword(Convert.FromBase64String(password)));
+                    password = Encoding.Unicode.GetString(DecryptPassword(Convert.FromBase64String(password)));
                     break;
                 case MembershipPasswordFormat.Hashed:
                     throw new ProviderException("Cannot unencode a hashed password.");
@@ -314,7 +315,7 @@ namespace NHibernate.Sidekick.Security.MembershipProvider.Providers
 
         public override bool ValidateUser(string username, string password)
         {
-            bool isValid = membershipProviderTask.ValidateUser(username, password, ApplicationName);
+            bool isValid = membershipProviderTask.ValidateUser(username, EncodePassword(password), ApplicationName);
             if (!isValid)
             {
                 UpdateFailureCount(username, PasswordFailureType.Password);

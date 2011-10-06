@@ -77,6 +77,7 @@
     <Compile Include="Domain\UserBaseWithTypedId.cs" />
     <Compile Include="Contracts\Tasks\IMembershipProviderTaskWithTypedId.cs" />
     <Compile Include="Enums\PasswordFailureType.cs" />
+    <Compile Include="PasswordManager.cs" />
     <Compile Include="Tasks\MembershipProviderTaskWithTypedId.cs" />
     <Compile Include="Tasks\MembershipProviderTask.cs" />
     <Compile Include="Utils.cs" />
