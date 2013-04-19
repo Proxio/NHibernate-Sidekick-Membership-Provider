@@ -38,6 +38,7 @@ namespace NHibernate.Sidekick.Security.MembershipProvider.Providers
         private int _minRequiredNonAlphanumericCharacters;
         private int _minRequiredPasswordLength;
         private string _passwordStrengthRegularExpression;
+        private int _bcryptWorkFactor = 10;
 
         #endregion
 
@@ -79,6 +80,7 @@ namespace NHibernate.Sidekick.Security.MembershipProvider.Providers
             _enablePasswordRetrieval = Convert.ToBoolean(GetConfigValue(config["enablePasswordRetrieval"], "true"));
             _requiresQuestionAndAnswer = Convert.ToBoolean(GetConfigValue(config["requiresQuestionAndAnswer"], "false"));
             _requiresUniqueEmail = Convert.ToBoolean(GetConfigValue(config["requiresUniqueEmail"], "true"));
+            _bcryptWorkFactor = Convert.ToInt32(GetConfigValue(config["bcryptWorkFactor"], "10"));
             salt = GetConfigValue(config["salt"], _applicationName);
             WriteExceptionsToEventLog = Convert.ToBoolean(GetConfigValue(config["writeExceptionsToEventLog"], "true"));
 
@@ -165,8 +167,8 @@ namespace NHibernate.Sidekick.Security.MembershipProvider.Providers
                     encodedPassword = Convert.ToBase64String(EncryptPassword(Encoding.Unicode.GetBytes(password)));
                     break;
                 case MembershipPasswordFormat.Hashed:
-                    // TODO Password encryption (hashed);
-                    throw new NotImplementedException("Hashed password");
+                    encodedPassword = BCrypt.Net.BCrypt.HashPassword(password, _bcryptWorkFactor);
+                    break;
                 default:
                     throw new ProviderException("Unsupported password format.");
             }
@@ -530,7 +532,7 @@ namespace NHibernate.Sidekick.Security.MembershipProvider.Providers
                     pass2 = UnEncodePassword(dbpassword);
                     break;
                 case MembershipPasswordFormat.Hashed:
-                    pass1 = EncodePassword(password);
+                    return BCrypt.Net.BCrypt.Verify(password, dbpassword);
                     break;
             }
 
