@@ -75,6 +75,22 @@ namespace NHibernate.Sidekick.Security.MembershipProvider.Tasks
             return true;
         }
 
+        public bool ValidateUser(string username, string password, string applicationName, CheckPassword checkPassword)
+        {
+            T user = membershipProviderRepository.FindOne(new UserValidation<T, TId>(username, password, applicationName));
+
+            if (user == null || user.IsLockedOut)
+                return false;
+
+            if (!checkPassword.Invoke(password, user.Password))
+                return false;
+
+            user.LastLoginDate = DateTime.Now;
+            membershipProviderRepository.Save(user);
+
+            return true;
+        }
+
         public string GetPassword(string username, string applicationName)
         {
             return membershipProviderRepository.GetPassword(username, applicationName);

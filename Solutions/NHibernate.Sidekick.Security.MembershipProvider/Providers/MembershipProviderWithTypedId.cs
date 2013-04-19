@@ -94,7 +94,7 @@ namespace NHibernate.Sidekick.Security.MembershipProvider.Providers
                 .OpenWebConfiguration(System.Web.Hosting.HostingEnvironment.ApplicationVirtualPath);
             _machineKey = (MachineKeySection) cfg.GetSection("system.web/machineKey");
 
-            if (_machineKey.ValidationKey.Contains("AutoGenerate") && PasswordFormat != MembershipPasswordFormat.Clear)
+            if (_machineKey.ValidationKey.Contains("AutoGenerate") && PasswordFormat == MembershipPasswordFormat.Encrypted)
                 throw new ProviderException("Hashed or Encrypted passwords are not supported with auto-generated keys.");
         }
 
@@ -167,7 +167,7 @@ namespace NHibernate.Sidekick.Security.MembershipProvider.Providers
                     encodedPassword = Convert.ToBase64String(EncryptPassword(Encoding.Unicode.GetBytes(password)));
                     break;
                 case MembershipPasswordFormat.Hashed:
-                    encodedPassword = BCrypt.Net.BCrypt.HashPassword(password, _bcryptWorkFactor);
+                    encodedPassword = BCrypt.Net.BCrypt.HashPassword(password ?? String.Empty, _bcryptWorkFactor);
                     break;
                 default:
                     throw new ProviderException("Unsupported password format.");
@@ -317,7 +317,8 @@ namespace NHibernate.Sidekick.Security.MembershipProvider.Providers
 
         public override bool ValidateUser(string username, string password)
         {
-            bool isValid = membershipProviderTask.ValidateUser(username, EncodePassword(password), ApplicationName);
+            bool isValid = membershipProviderTask.ValidateUser(username, password, ApplicationName, CheckPassword);
+
             if (!isValid)
             {
                 UpdateFailureCount(username, PasswordFailureType.Password);

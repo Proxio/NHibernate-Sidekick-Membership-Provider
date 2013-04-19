@@ -17,7 +17,6 @@ namespace NHibernate.Sidekick.Security.MembershipProvider.Specifications
         public override IQueryable<T> SatisfyingElementsFrom(IQueryable<T> candidates)
         {
             return candidates.Where(x => x.Username.ToLower() == Username &&
-                                         x.Password == Password &&
                                          x.ApplicationName == ApplicationName);
         }
     }

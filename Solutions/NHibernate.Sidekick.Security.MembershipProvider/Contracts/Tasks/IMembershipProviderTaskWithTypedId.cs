@@ -4,8 +4,12 @@ using NHibernate.Sidekick.Security.MembershipProvider.Domain;
 
 namespace NHibernate.Sidekick.Security.MembershipProvider.Contracts.Tasks
 {
+    public delegate bool CheckPassword(string pass1, string pass2);
+
     public interface IMembershipProviderTaskWithTypedId<T, TId> where T : UserBaseWithTypedId<TId>
     {
+        
+
         bool Delete(string username, string applicationName);
         MembershipUserCollection FindUsersByEmail(string emailToMatch, int pageIndex, int pageSize, out int totalRecords, string name, string applicationName);
         MembershipUserCollection FindUsersByName(string usernameToMatch, int pageIndex, int pageSize, out int totalRecords, string name, string applicationName);
@@ -16,6 +20,7 @@ namespace NHibernate.Sidekick.Security.MembershipProvider.Contracts.Tasks
         string GetUserNameByEmail(string email, string applicationName);
         void SaveOrUpdate(T user);
         bool ValidateUser(string username, string password, string applicationName);
+        bool ValidateUser(string username, string password, string applicationName, CheckPassword checkPassword);
         string GetPassword(string username, string applicationName);
     }
 }
